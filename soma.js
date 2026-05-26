@@ -1,4 +1,4 @@
-function.somarnumeros(n1,n2){
+function somarnumeros(n1,n2){
     console.log (n1+n2);
 }
 somarnumeros(10,20);
