@@ -13,8 +13,8 @@ function dividir(a,b){
   module.exports=dividir
 }
 module.exports={
-  soma:soma,
+  soma:somarnumeros,
   subtração:subtração,
-  multiplicação:multiplicação,
-  divisão:divisão,
+  multiplicação:multiplicar,
+  divisão:dividir,
 }
