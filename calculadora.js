@@ -1,20 +1,18 @@
 function somarnumeros(n1,n2){
-    console.log (n1+n2);
+    return (n1+n2);
 }
-function subtração(a,b) {
+function subtracao(a,b) {
   return a-b; 
 }
 function multiplicar(a,b){
   return a*b;}
-module.exports=multiplicar
 
 function dividir(a,b){
   return a/b;
-  module.exports=dividir
 }
 module.exports={
-  soma:somarnumeros,
-  subtração:subtração,
+  somarnumeros:somarnumeros,
+  subtracao:subtracao,
   multiplicação:multiplicar,
   divisão:dividir,
 }
