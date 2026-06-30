@@ -46,7 +46,26 @@ const biblioteca = {
     if (!livroEncontrado) {
       console.log(`\nO livro "${nome}" não existe na biblioteca.`);
     }
+  },
+  devolver(nome) {
+    for (let i = 0; i < this.livros.length; i++) {
+      const L = this.livros[i];
+      if (L.nome === nome) {
+        if (L.alugado === true) {
+          L.disponivel = true;
+          L.alugado = false;
+          L.estoque += 1;
+          console.log ("o livro foi devolvido com sucesso");
+          return}
+          else (console.log ("o livro não está alugado"));
+          return;
+      }
+    } console.log ("o livro não existe na biblioteca");
+  
   }
+    
+  
+      
 };
 
 biblioteca.adicionarLivros("Dom Quixote", "Miguel de Cervantes", 1605, "Romance", 2);
@@ -64,3 +83,5 @@ biblioteca.alugar("Harry Potter e a Pedra Filosofal"); // Testando um livro que 
 
 console.log("\n--- Status dos Livros Após Aluguéis ---");
 biblioteca.mostrarLivros();
+biblioteca.devolver ("Dom Quixote");
+
