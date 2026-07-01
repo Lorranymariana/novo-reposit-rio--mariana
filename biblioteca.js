@@ -47,6 +47,7 @@ const biblioteca = {
       console.log(`\nO livro "${nome}" não existe na biblioteca.`);
     }
   },
+
   devolver(nome) {
     for (let i = 0; i < this.livros.length; i++) {
       const L = this.livros[i];
@@ -55,17 +56,32 @@ const biblioteca = {
           L.disponivel = true;
           L.alugado = false;
           L.estoque += 1;
-          console.log ("o livro foi devolvido com sucesso");
-          return}
-          else (console.log ("o livro não está alugado"));
+          console.log("o livro foi devolvido com sucesso");
           return;
+        } else {
+          console.log("o livro não está alugado");
+          return;
+        }
       }
-    } console.log ("o livro não existe na biblioteca");
-  
+    }
+    console.log("o livro não existe na biblioteca");
+  },
+
+  remover(nome) {
+    let livroEncontrado = false;
+    for (let i = 0; i < this.livros.length; i++) {
+      const L = this.livros[i];
+      if (L.nome.toLowerCase() === nome.toLowerCase()) {
+        this.livros.splice(i, 1);
+        console.log("O Livro " + L.nome + " foi removido com sucesso!");
+        livroEncontrado = true;
+        break; 
+      }
+    }
+    if (!livroEncontrado) {
+      console.log("Livro não encontrado!");
+    }
   }
-    
-  
-      
 };
 
 biblioteca.adicionarLivros("Dom Quixote", "Miguel de Cervantes", 1605, "Romance", 2);
@@ -79,9 +95,10 @@ biblioteca.mostrarLivros();
 biblioteca.alugar("Dom Quixote");
 biblioteca.alugar("1984");
 biblioteca.alugar("O Senhor dos Anéis");
-biblioteca.alugar("Harry Potter e a Pedra Filosofal"); // Testando um livro que não existe
+biblioteca.alugar("Harry Potter e a Pedra Filosofal"); 
 
 console.log("\n--- Status dos Livros Após Aluguéis ---");
 biblioteca.mostrarLivros();
-biblioteca.devolver ("Dom Quixote");
-
+biblioteca.devolver("Dom Quixote");
+biblioteca.remover("Harry Potter e a Pedra Filosofal");
+biblioteca.mostrarLivros()
